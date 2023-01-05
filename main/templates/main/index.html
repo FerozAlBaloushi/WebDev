@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+  <br>
+    <div class="card" id="backdrop">
+      <div class="card-body">
+          <div class="row">
+            {% for music in musics %}
+              <div class="col-md-4">
+                  <div class="card">
+                      <div class="card-body">
+                        <div class="text-center">
+                          <img src="{{ music.image }}" alt="" class="img-fluid" width="85%">
+                          <h3 class="text-center">{{ music.name }}</h3>
+
+                          <li>{{ music.release_date }}</li>
+                          <a href="{% url 'main:detail' music.id %}">Read More</a>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
